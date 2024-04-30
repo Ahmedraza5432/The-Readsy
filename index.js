@@ -31,7 +31,7 @@ app.post('/api/messages', (req, res) => {
   const mailOptions = {
     from: 'ahmed.radiantcortex@gmail.com',
     to: 'contact@thereadsy.com',
-    subject: 'Your Exclusive Invitation Inside',
+    subject: `${name ? `${name}, ` : ''}your Exclusive Invitation Inside`,
     html: `
         <html>
           <head>
@@ -65,11 +65,11 @@ app.post('/api/messages', (req, res) => {
               <h1>Contact Client</h1>
 
               <h2>Contact Information:</h2>
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Phone Number:</strong> ${number}</p>
+              <p><strong>Name:</strong> ${name ? name : 'Name not Available'}</p>
+              <p><strong>Email:</strong> ${email ? email : 'Email Not Available'}</p>
+              <p><strong>Phone Number:</strong> ${number ? number : 'Phone Number Not Available'}</p>
               <p><strong>Message:</strong></p>
-              <p>${req.body.textarea ? req.body.textarea : 'No text Avalible'}</p>
+              <p>${req.body.textarea ? req.body.textarea : 'No text Available'}</p>              
             </div>
           </body>
         </html>
