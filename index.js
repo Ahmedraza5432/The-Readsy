@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'ahmed.radiantcortex@gmail.com',
-    pass: 'abozcchwagyfqziw',
+    pass: 'mreljejirzhndetb',
   },
 });
 
@@ -21,7 +21,7 @@ app.get('/' , (req,res) =>{
 res.send("Server Start Succesfully!!!")
 })
 app.post('/api/messages', (req, res) => {
-  const { name, email, textarea , number} = req.body;
+  const { name, email, number} = req.body;
 
   // Validate input
   if (!name || !email || !number) {
@@ -69,7 +69,7 @@ app.post('/api/messages', (req, res) => {
               <p><strong>Email:</strong> ${email}</p>
               <p><strong>Phone Number:</strong> ${number}</p>
               <p><strong>Message:</strong></p>
-              <p>${textarea ? textarea : 'No text Avalible'}</p>
+              <p>${req.body.textarea ? req.body.textarea : 'No text Avalible'}</p>
             </div>
           </body>
         </html>
